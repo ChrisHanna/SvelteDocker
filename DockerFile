@@ -1,0 +1,12 @@
+FROM node:12-alpine
+
+RUN mkdir -p /app
+WORKDIR /app
+
+COPY . .
+
+RUN npm install 
+
+EXPOSE 2222 5000 80 35729 
+
+CMD ["npm", "start"]
