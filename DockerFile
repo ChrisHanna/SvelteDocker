@@ -4,8 +4,9 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN chmod 775 -R /app
+
 RUN npm install
+RUN chmod 775 -R /app
 RUN npm run build
 
 COPY . .
