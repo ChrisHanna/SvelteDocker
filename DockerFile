@@ -1,12 +1,15 @@
 FROM node:12-alpine
 
-RUN mkdir -p /app
-WORKDIR /app
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install
 
 COPY . .
 
-RUN npm install 
+EXPOSE 5000
 
-EXPOSE 2222 5000 80 35729 
+ENV HOST=0.0.0.0
 
-CMD ["npm", "start"]
+CMD [ "npm", "start" ]
